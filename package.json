@@ -1,0 +1,43 @@
+{
+  "name": "@nzws/bank-bot",
+  "repository": "https://github.com/nzws/bank-bot.git",
+  "author": "nzws <i@nzws.me>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint:js": "eslint --ignore-path .gitignore \"**/*.js\"",
+    "lint:prettier": "prettier --check --ignore-path .gitignore \"**/*.{js,md,json,yml}\"",
+    "lint": "npm-run-all lint:* -s",
+    "format:js": "eslint --fix --ignore-path .gitignore \"**/*.js\"",
+    "format:prettier": "pretty-quick",
+    "format": "npm-run-all format:* -s",
+    "format-force": "prettier --write --ignore-path .gitignore \"**\"",
+    "build": "cross-env NODE_ENV=production babel src -d build --copy-files",
+    "dev": "nodemon --exec \"cross-env NODE_ENV=development node -r @babel/register src\" -e js,json --watch src",
+    "start": "node build",
+    "encrypt": "node -r @babel/register scripts/encrypt.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/register": "^7.7.4",
+    "@yuzulabo/eslint-config": "^1.0.1",
+    "@yuzulabo/prettier-config": "^1.0.1",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.1",
+    "eslint": "^6.7.2",
+    "nodemon": "^2.0.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  },
+  "prettier": "@yuzulabo/prettier-config",
+  "dependencies": {
+    "@nzws/bank-js": "^0.1.0",
+    "any-router": "^1.1.1",
+    "chalk": "^3.0.0",
+    "discord.js": "^12.0.1",
+    "puppeteer": "^2.1.1"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "discordToken": "",
+  "bank": {
+    "password": "1234",
+    "banks": {
+      "bank1": {
+        "id": "jp-bank",
+        "username": "0000-0000-00001",
+        "password": "",
+        "options": {
+          "secretQuestions": [["q", "a"]]
+        }
+      }
+    }
+  }
+}
