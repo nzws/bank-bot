@@ -749,10 +749,10 @@
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.5.tgz#1781c620b4c88d619bd0373a1548e5a6025e3d3a"
   integrity sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
 
-"@nzws/bank-js@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.3.tgz#0d04eccf46103018caab15e26191df09a5bdd98a"
-  integrity sha512-NwGjVLjDLN/rbZbam6ZfPXoTiZRqJ0EPmWJs7fyPZyKG608wmVddWFxo/d9y5y1zkp3gxMeVpCIHCYEawT9avA==
+"@nzws/bank-js@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.4.tgz#f6b82717ca820d090ddf79f2f761a4ab3845bd5d"
+  integrity sha512-Xv5dJ2W8wRneS4nxozEuxluNHovNrag8iPal/EagglunZAfzWdLY9Gn2cw5MnD5kt2eKzKN9op5WusA1IBfm3Q==
   dependencies:
     log4js "^6.1.2"
     puppeteer "^2.1.1"
