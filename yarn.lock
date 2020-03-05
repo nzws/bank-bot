@@ -749,10 +749,10 @@
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.5.tgz#1781c620b4c88d619bd0373a1548e5a6025e3d3a"
   integrity sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
 
-"@nzws/bank-js@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.1.tgz#053f10af92da0c2a53663eadc31aeb731c220de3"
-  integrity sha512-3K9GzDuxT7IVNTJkfkNj8lqljbE6uyFaoz7Eruv7kqk1DTLZ5/s3480gbbyUCTuwGAM+De8b/n//hTg3rEw9CQ==
+"@nzws/bank-js@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.2.tgz#534eb5145103ddd6bad0e11bbf3b4e8a6b04c17b"
+  integrity sha512-8Am77OUNgtW2+ufFmskg88ReCscdg9yBUw/qTwtwqYtYahLzn1qpUudKyifk8D0vHbrUtmi3qvEKlYWHzFoq5g==
   dependencies:
     log4js "^6.1.2"
     puppeteer "^2.1.1"
@@ -1114,9 +1114,9 @@ camelcase@^4.0.0:
   integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
 
 caniuse-lite@^1.0.30001030:
-  version "1.0.30001031"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001031.tgz#76f1bdd39e19567b855302f65102d9a8aaad5930"
-  integrity sha512-DpAP5a1NGRLgYfaNCaXIRyGARi+3tJA2quZXNNA1Du26VyVkqvy2tznNu5ANyN1Y5aX44QDotZSVSUSi2uMGjg==
+  version "1.0.30001032"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001032.tgz#b8d224914e2cd7f507085583d4e38144c652bce4"
+  integrity sha512-8joOm7BwcpEN4BfVHtfh0hBXSAPVYk+eUIcNntGtMkUWy/6AKRCDZINCLe3kB1vHhT2vBxBF85Hh9VlPXi/qjA==
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
