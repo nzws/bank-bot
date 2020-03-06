@@ -37,7 +37,7 @@ export const Login = async ({ msg, args, setState, getState, client }) => {
       const { bank, username, password, options } = data[id];
 
       const browser = await puppeteer.launch({
-        headless: false, // debug
+        // headless: false, // debug
         slowMo: 200
       });
       const b = new bankJs(bank);
