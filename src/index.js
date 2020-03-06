@@ -1,4 +1,3 @@
-import puppeteer from 'puppeteer';
 import { Client } from 'discord.js';
 
 import config from '../config';
@@ -16,10 +15,13 @@ const setState = (key, data) => (state[key] = data);
 const getState = () => state;
 
 (async () => {
+  /*
   const browser = await puppeteer.launch({
-    slowMo: 50
+    headless: false, // debug
+    slowMo: 200
   });
   setState('browser', browser);
+   */
 
   const client = new Client();
 

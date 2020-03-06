@@ -10,6 +10,7 @@ export const logDebug = (...args) =>
   process.env.NODE_ENV === 'development' ? logInfo(...args) : undefined;
 
 export const catcher = (msg, e) => {
+  msg.channel.stopTyping();
   logError(e);
   return msg.reply(
     '🚨 なんらかの理由でコマンドの実行に失敗しました。申し訳ありません...'

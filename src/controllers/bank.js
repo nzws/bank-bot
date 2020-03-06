@@ -1,4 +1,5 @@
 import { historyEmbeds } from '../utils/text';
+import { logError } from '../utils/logger';
 
 export const Balance = async ({ getState, msg, args }) => {
   const [id] = args;
@@ -9,20 +10,28 @@ export const Balance = async ({ getState, msg, args }) => {
     return msg.reply('まだログイン済んでないみたい');
   }
 
-  const balance = await session.getBalance();
-  msg.reply('', {
-    embed: {
-      author: {
-        name: `${id} - ${state.bank[id].bank}`
-      },
-      fields: [
-        {
-          name: '残高',
-          value: `¥${balance}`
-        }
-      ]
-    }
-  });
+  try {
+    msg.channel.startTyping();
+    const balance = await session.getBalance();
+    msg.reply('', {
+      embed: {
+        author: {
+          name: `${id} - ${state.bank[id].bank}`
+        },
+        fields: [
+          {
+            name: '残高',
+            value: `¥${balance}`
+          }
+        ]
+      }
+    });
+    msg.channel.stopTyping();
+  } catch (e) {
+    msg.channel.stopTyping();
+    logError(e);
+    msg.channel.send(['```', e.message, '```']);
+  }
 };
 
 export const Log = async ({ getState, msg, args }) => {
@@ -59,6 +68,7 @@ export const RakutenSend = async ({ getState, msg, args }) => {
 
   const options = { month: 'long', day: 'numeric' };
 
+  msg.channel.startTyping();
   const logs = await session.action('DEPOSIT_FROM_JPBANK', {
     amount,
     PIN: bank.PIN
@@ -88,4 +98,5 @@ export const RakutenSend = async ({ getState, msg, args }) => {
       ]
     }
   });
+  msg.channel.stopTyping();
 };

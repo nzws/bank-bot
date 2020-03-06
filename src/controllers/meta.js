@@ -1,8 +1,10 @@
+import puppeteer from 'puppeteer';
 import bankJs from '@nzws/bank-js';
 
 import config from '../../config';
 import { decrypt } from '../utils/crypto';
 import { historyEmbeds } from '../utils/text';
+import { logError } from '../utils/logger';
 
 export const Help = state => {
   const { msg } = state;
@@ -11,7 +13,7 @@ export const Help = state => {
 };
 
 export const Login = async ({ msg, args, setState, getState, client }) => {
-  const { bank, browser } = getState();
+  const { bank } = getState();
   const { encrypted, iv } = config.bank;
   try {
     msg.delete();
@@ -25,6 +27,7 @@ export const Login = async ({ msg, args, setState, getState, client }) => {
 
     setState('bank', data);
     msg.reply('✅ ログインしました、接続しています...');
+    msg.channel.startTyping();
 
     client.user.setActivity('Running', {
       type: 'PLAYING'
@@ -33,6 +36,10 @@ export const Login = async ({ msg, args, setState, getState, client }) => {
     const login = async id => {
       const { bank, username, password, options } = data[id];
 
+      const browser = await puppeteer.launch({
+        headless: false, // debug
+        slowMo: 200
+      });
       const b = new bankJs(bank);
       await b.init(browser);
       await b.login(username, password, options);
@@ -40,54 +47,68 @@ export const Login = async ({ msg, args, setState, getState, client }) => {
 
       const checker = async id => {
         let isFirst = false;
-        const state = getState();
-        const session = state[`${id}_page`];
-        if (!state.hist) {
-          state.hist = {};
-        }
-        if (!state.hist[id]) {
-          state.hist[id] = [];
-          isFirst = true;
-        }
 
-        const log = await session.getLogs();
-        const oldLogs = JSON.stringify(state.hist[id]);
-
-        setTimeout(() => checker(id), 1000 * 60 * 30);
-        setState('hist', {
-          ...state.hist,
-          [id]: log
-        });
-        if (isFirst) {
-          return;
-        }
-
-        const newLogs = log.filter(
-          v => oldLogs.indexOf(JSON.stringify(v)) === -1
-        );
-        if (!newLogs[0]) {
-          return;
-        }
-
-        msg.channel.send(':new: 新たな取引', {
-          embed: {
-            author: {
-              name: `${id} - ${state.bank[id].bank}`
-            },
-            fields: newLogs.map(historyEmbeds)
+        try {
+          const state = getState();
+          const session = state[`${id}_page`];
+          if (!state.hist) {
+            state.hist = {};
           }
-        });
+          if (!state.hist[id]) {
+            state.hist[id] = [];
+            isFirst = true;
+          }
+
+          const log = await session.getLogs();
+          const oldLogs = JSON.stringify(state.hist[id]);
+
+          setTimeout(() => checker(id), 1000 * 60 * 30);
+          setState('hist', {
+            ...state.hist,
+            [id]: log
+          });
+          if (isFirst) {
+            return;
+          }
+
+          const newLogs = log.filter(
+            v => oldLogs.indexOf(JSON.stringify(v)) === -1
+          );
+          if (!newLogs[0]) {
+            return;
+          }
+
+          msg.channel.send(':new: 新たな取引', {
+            embed: {
+              author: {
+                name: `${id} - ${state.bank[id].bank}`
+              },
+              fields: newLogs.map(historyEmbeds)
+            }
+          });
+        } catch (e) {
+          msg.channel.stopTyping();
+          logError(e);
+          msg.channel.send(['```', e.message, '```']);
+        }
       };
 
       await checker(id);
 
+      msg.channel.stopTyping();
       return msg.channel.send(`✅ ${id} に接続`);
     };
-    const promise = Object.keys(data).map(id => () => login(id));
+
+    const promise = Object.keys(data).map(id => login(id));
+    await Promise.all(promise);
+    /*
     for (const func of promise) {
       await func();
     }
+     */
   } catch (e) {
-    msg.reply('パスワード違いそう');
+    msg.channel.stopTyping();
+    logError(e);
+    msg.channel.send(['```', e.message, '```']);
   }
 };
