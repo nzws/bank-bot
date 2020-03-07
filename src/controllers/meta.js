@@ -33,13 +33,19 @@ export const Login = async ({ msg, args, setState, getState, client }) => {
       type: 'PLAYING'
     });
 
+    const browser = await puppeteer.launch({
+      // headless: process.env.NODE_ENV !== 'development',
+      slowMo: 200,
+      args: [
+        '--disable-background-timer-throttling',
+        '--disable-backgrounding-occluded-windows',
+        '--disable-renderer-backgrounding'
+      ]
+    });
+
     const login = async id => {
       const { bank, username, password, options } = data[id];
 
-      const browser = await puppeteer.launch({
-        // headless: false, // debug
-        slowMo: 200
-      });
       const b = new bankJs(bank);
       await b.init(browser);
       await b.login(username, password, options);

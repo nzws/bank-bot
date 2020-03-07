@@ -13,8 +13,9 @@
     "format": "npm-run-all format:* -s",
     "format-force": "prettier --write --ignore-path .gitignore \"**\"",
     "build": "cross-env NODE_ENV=production babel src -d build --copy-files",
-    "dev": "nodemon --exec \"cross-env NODE_ENV=development node -r @babel/register src\" -e js,json --watch src",
-    "start": "node build",
+    "watch": "nodemon --exec \"cross-env NODE_ENV=development node -r @babel/register src\" -e js,json --watch src",
+    "start": "cross-env NODE_ENV=production node build",
+    "dev": "yarn build && cross-env NODE_ENV=development node build",
     "encrypt": "node -r @babel/register scripts/encrypt.js"
   },
   "devDependencies": {
@@ -34,7 +35,7 @@
   },
   "prettier": "@yuzulabo/prettier-config",
   "dependencies": {
-    "@nzws/bank-js": "^0.1.5",
+    "@nzws/bank-js": "^0.1.6",
     "any-router": "^1.1.1",
     "chalk": "^3.0.0",
     "discord.js": "^12.0.1",

@@ -749,10 +749,10 @@
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.5.tgz#1781c620b4c88d619bd0373a1548e5a6025e3d3a"
   integrity sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
 
-"@nzws/bank-js@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.5.tgz#09e026faaeb432de7332ad4967a781b46d65d4bd"
-  integrity sha512-tayJ3CjhtCOoqJe4a9qM2jOaACyCpo5/6DLxNRpU/+xzwNHU7vIBioCCaW455V4EHS+LT2ds639M6BbVcS8R8w==
+"@nzws/bank-js@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.6.tgz#c5963198a5d81bde37d53cf45db16c69d6b66f99"
+  integrity sha512-b8E1EkkK1bZ07qJCRObH9H0SyfG1BtsmFnAdSUcUoP9FMhMIPr80bDUXm3CLPSaSLLtNu2sBAKEVn2Db6ZBXMg==
   dependencies:
     log4js "^6.1.2"
     puppeteer "^2.1.1"
@@ -1504,9 +1504,9 @@ duplexer3@^0.1.4:
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
 electron-to-chromium@^1.3.363:
-  version "1.3.370"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.370.tgz#420fba483d30ba3f7965b30ecf850fdb5f08a0bc"
-  integrity sha512-399cXDE9C7qoVF2CUgCA/MLflfvxbo1F0kB/pkB94426freL/JgZ0HNaloomsOfnE+VC/qgTFZqzmivSdaNfPQ==
+  version "1.3.371"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.371.tgz#f8299caf7104d0e1a1b3952d81a78e2c2a854675"
+  integrity sha512-4GZyU3P6MEZeqp44SThp8sMY+PRf7tWJ1oRtW7hCEQLVK7nT73Ip5pvzM+t9ZLcMbzKHoNWZ9G6bQshOVpYIVA==
 
 emoji-regex@^7.0.1:
   version "7.0.3"
