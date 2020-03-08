@@ -749,10 +749,10 @@
   resolved "https://registry.yarnpkg.com/@discordjs/collection/-/collection-0.1.5.tgz#1781c620b4c88d619bd0373a1548e5a6025e3d3a"
   integrity sha512-CU1q0UXQUpFNzNB7gufgoisDHP7n+T3tkqTsp3MNUkVJ5+hS3BCvME8uCXAUFlz+6T2FbTCu75A+yQ7HMKqRKw==
 
-"@nzws/bank-js@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.7.tgz#7a94450d48797f763704104778cb6ba3900c6c16"
-  integrity sha512-VrqBhOgpWh2UdrKRmMwNMd8zqRqOQOXje/qemDYszjEOetD+2GbrTJjw3DoAfrNp2nDw4YRyk3pZM9oHXqoGjg==
+"@nzws/bank-js@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@nzws/bank-js/-/bank-js-0.1.8.tgz#d7687ec4bfc7d652064b99e0052235a039b58faa"
+  integrity sha512-X1SC2+HJ1Ens1IwX2UqXO3Cu8YKhr0+zOaFY3iulYm+E+nr2QguhFuZW2onrqSP7mfffChz9gAwLWVrQrfxqfA==
   dependencies:
     log4js "^6.1.2"
     puppeteer "^2.1.1"
@@ -4189,9 +4189,9 @@ ws@^6.1.0:
     async-limiter "~1.0.0"
 
 ws@^7.2.1:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.1.tgz#03ed52423cd744084b2cf42ed197c8b65a936b8e"
-  integrity sha512-sucePNSafamSKoOqoNfBd8V0StlkzJKL2ZAhGQinCfNQ+oacw+Pk7lcdAElecBF2VkLNZRiIb5Oi1Q5lVUVt2A==
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.2.2.tgz#36df62f68f0d1a6ec66d3f880a02476f3a81f24f"
+  integrity sha512-2qj/tYkDPDSVf7JiHanwEBwkhxi7DchFewIsSnR33MQtG3O/BPAJjqs4g6XEuayuRqIExSQMHZlmyDLbuSrXYw==
 
 xdg-basedir@^3.0.0:
   version "3.0.0"
